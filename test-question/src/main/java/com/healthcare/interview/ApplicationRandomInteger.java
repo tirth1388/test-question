@@ -1,5 +1,6 @@
 package com.healthcare.interview;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -15,13 +16,14 @@ public class ApplicationRandomInteger {
 		//print the duplicate numbers
 		System.out.println("\nPrinting duplicate numbers only");
 		List<Integer> duplicateNumbers = reduceToDuplicates(randomIntegers);
-		duplicateNumbers.forEach(System.out::println);
+		Set<Integer> duplicateNumberSet = new HashSet<>(duplicateNumbers);
+		duplicateNumberSet.forEach(System.out::println);
 		
 		//print the intersection of another list
 		System.out.println("\nPrinting intersections of two list only, in order");
 		List<Integer> anotherRandomIntegers = generateRandIntList();
-		Set<Integer> intersection = findOrderedIntersection(randomIntegers, anotherRandomIntegers);
-		intersection.forEach(System.out::println);
+		List<Integer> intersectionList = findOrderedIntersection(randomIntegers, anotherRandomIntegers);
+		intersectionList.forEach(System.out::println);
 	}
 
 }
