@@ -37,14 +37,15 @@ public class RandomIntListUtil {
 				.collect(Collectors.toList());
 	}
 	
-	public static Set<Integer> findOrderedIntersection(List<Integer> randomIntList, List<Integer> anotherIntList) {
+	public static List<Integer> findOrderedIntersection(List<Integer> randomIntList, List<Integer> anotherIntList) {
 		
 		SortedSet<Integer> ss = new TreeSet<>(anotherIntList);
 		return randomIntList
 				.stream()
 				.filter(x -> ss.contains(x))
+				.distinct()
 				.sorted()
-				.collect(Collectors.toSet());	
+				.collect(Collectors.toList());	
 	}
 	
 }
